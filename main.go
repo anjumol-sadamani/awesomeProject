@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	var birds []s.Bird = make([]s.Bird, 10)
+	var birds = make([]s.Bird, 10)
 	n := 'a'
 	for i := 0; i < len(birds); i++ {
 		birds[i].Height = rand.Intn(10) + 1
@@ -17,7 +17,14 @@ func main() {
 	}
 
 	for i := 0; i < 100; i++ {
-		birds[rand.Intn(9)+1].DoSomeThing()
+		switch rand.Intn(3) {
+		case 0:
+			birds[rand.Intn(9)+1].Eat()
+		case 1:
+			birds[rand.Intn(9)+1].Fly()
+		case 2:
+			birds[rand.Intn(9)+1].Shit()
+		}
 	}
 
 }

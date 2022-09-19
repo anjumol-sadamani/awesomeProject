@@ -34,16 +34,3 @@ func (b *Bird) Shit() {
 	b.ShitWeight = b.ShitWeight - shit
 	fmt.Println(b.Name+" shat", shit, " kilo. Now shitWeight is ", b.ShitWeight)
 }
-
-func (b *Bird) DoSomeThing() {
-
-	switch rand.Intn(3) {
-	case 0:
-		b.Eat()
-	case 1:
-		b.Fly()
-	case 2:
-		b.Shit()
-	}
-
-}
