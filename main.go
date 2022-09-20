@@ -3,6 +3,7 @@ package main
 import (
 	s "awesomeProject/service"
 	"math/rand"
+	"sync"
 )
 
 func main() {
@@ -15,9 +16,15 @@ func main() {
 		birds[i].FleshWeight = rand.Intn(10) + 1
 		n++
 	}
+	wg := new(sync.WaitGroup)
+
+	f := new(s.FoodGenerator)
+	go f.GenerateFood(wg)
 
 	for i := 0; i < 10; i++ {
-		birds[rand.Intn(9)+1].DoSomething()
+		wg.Add(3)
+		birds[rand.Intn(9)+1].DoSomething(wg)
+		wg.Wait()
 	}
 
 }
