@@ -16,15 +16,8 @@ func main() {
 		n++
 	}
 
-	for i := 0; i < 100; i++ {
-		switch rand.Intn(3) {
-		case 0:
-			birds[rand.Intn(9)+1].Eat()
-		case 1:
-			birds[rand.Intn(9)+1].Fly()
-		case 2:
-			birds[rand.Intn(9)+1].Shit()
-		}
+	for i := 0; i < 10; i++ {
+		birds[rand.Intn(9)+1].DoSomething()
 	}
 
 }
