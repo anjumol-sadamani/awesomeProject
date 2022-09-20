@@ -23,7 +23,7 @@ func main() {
 
 	for i := 0; i < 10; i++ {
 		wg.Add(3)
-		birds[rand.Intn(9)+1].DoSomething(wg)
+		birds[rand.Intn(9)+1].DoSomething(wg, f)
 		wg.Wait()
 	}
 
