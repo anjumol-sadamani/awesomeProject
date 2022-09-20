@@ -43,7 +43,7 @@ func (b *Bird) Eat(wg *sync.WaitGroup, f *FoodGenerator) {
 		}
 		fmt.Println(b.Name+" ate. Now fleshWeight is ", b.FleshWeight, " and shitWeight is ", b.ShitWeight)
 	} else {
-		fmt.Println("Don't have ", food, " kilo food for "+b.Name)
+		fmt.Println("Only had ", f.Quantity, " kilo food. ", b.Name, " need ", food, " kilo food!!")
 	}
 
 }
