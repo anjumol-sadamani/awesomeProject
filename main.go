@@ -19,6 +19,7 @@ func main() {
 	wg := new(sync.WaitGroup)
 
 	f := new(s.FoodGenerator)
+
 	go f.GenerateFood(wg)
 
 	for i := 0; i < 10; i++ {

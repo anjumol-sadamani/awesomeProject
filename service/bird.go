@@ -32,7 +32,7 @@ func (b *Bird) Eat(wg *sync.WaitGroup, f *FoodGenerator) {
 		f.Quantity = f.Quantity - 10
 		fmt.Println(b.Name+" is eating ", food, " kilo food")
 		fmt.Println("Remaining food in bin is ", f.Quantity)
-		time.Sleep(5 * time.Second)
+		//time.Sleep(5 * time.Second)
 		fleshPercentage := 0.5
 		b.FleshWeight = b.FleshWeight + int(fleshPercentage*float64(food))
 		b.ShitWeight = b.ShitWeight + int((1-fleshPercentage)*float64(food))
@@ -60,13 +60,21 @@ func (b *Bird) Shit(wg *sync.WaitGroup) {
 
 func (f *FoodGenerator) GenerateFood(wg *sync.WaitGroup) {
 	defer wg.Done()
-	for f.Quantity+10 <= 100 {
+
+	for i := 0; i < 5; i++ {
 		fmt.Println("generating food and storing in bin")
 		f.Quantity = f.Quantity + 10
 		f.Name = "seeds"
 		fmt.Println("food in bin is ", f.Quantity)
 		time.Sleep(5 * time.Second)
 	}
+	//for f.Quantity+10 <= 100 {
+	//	fmt.Println("generating food and storing in bin")
+	//	f.Quantity = f.Quantity + 10
+	//	f.Name = "seeds"
+	//	fmt.Println("food in bin is ", f.Quantity)
+	//	time.Sleep(5 * time.Second)
+	//}
 
 }
 
